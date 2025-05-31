@@ -6,10 +6,10 @@ from fastapi.responses import HTMLResponse
 app = FastAPI()
 
 # kết nối css
-app.mount("/static/css", StaticFiles(directory="static\css"), name="static")
+app.mount("/static/css", StaticFiles(directory="static/css"), name="static")
 
 # kết nối img
-app.mount("/static/img", StaticFiles(directory="static\img"), name="static")
+app.mount("/static/img", StaticFiles(directory="static/img"), name="static")
 
 # kết nối html
 templates = Jinja2Templates(directory="template")
