@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/css/Register.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Register</h1>
+        <form action="/register" method="post">
+            <label for="" id="labelaccount">Account</label>
+            <br>
+            <input type="text" name="account" id="account" onblur="ktaccount()">
+            <br>
+            <label for="">Password</label>
+            <br>
+            <input type="password" name="password" >
+            <br>
+            <label for="">Comfirm Password</label>
+            <br>
+            <input type="password" name="comfirmpassword">
+            <button type="submit" id="btnres">Register</button>
+        </form>
+        
+        <br>
+        <i>Nếu đã có tài khoản nhấn vào <a href="/">đăng nhập!</a></i>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    function ktaccount() {
+    const account = document.getElementById('account').value.trim();
+    const thongbao = document.getElementById('labelaccount');
+    const kt = /^(?=.*[a-z])(?=(.*\d){2,}).{6,}$/;
+
+    if (account === "") {
+        thongbao.innerHTML = "Account - không được để trống";
+    } else if (!kt.test(account)) {
+        thongbao.innerHTML = "Account phải có ít nhất 1 chữ thường, 2 số và tối thiểu 6 ký tự";
+    } else {
+        thongbao.innerHTML = "Account"; 
+    }
+}
+
+</script>
+
